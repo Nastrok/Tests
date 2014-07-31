@@ -33,10 +33,10 @@
         <arg value="--log-csv"/>
         <arg value="${basedir}/build/logs/phploc.csv"/>
         <arg value="--exclude"/>
-        <arg value="${basedir}/api/"/>
+        <arg value="${src}/api/"/>
         <arg value="--exclude"/>
-        <arg value="${basedir}/external/"/>
-        <arg path="${basedir}"/>
+        <arg value="${src}/external/"/>
+        <arg path="${src}"/>
     </exec>
 </target>
 
@@ -47,7 +47,7 @@
         <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg"/>
         <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg"/>
         <arg value="--ignore=/dir/one/,/dir/two/"/>
-        <arg path="${basedir}"/>
+        <arg path="${src}"/>
     </exec>
 </target>
 
@@ -56,9 +56,9 @@
         <arg value="--log-pmd"/>
         <arg value="${basedir}/build/logs/pmd-cpd.xml"/>
         <arg value="--exclude"/>
-        <arg value="${basedir}/api/"/>
+        <arg value="${src}/api/"/>
         <arg value="--exclude"/>
-        <arg value="${basedir}/exclude/"/><arg path="${basedir}"/>
+        <arg value="${src}/exclude/"/><arg path="${src}"/>
     </exec>
 </target>
 
