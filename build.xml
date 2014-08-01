@@ -17,26 +17,23 @@
   </target>
 
   <target name="lint">
-    <fileset dir="${basedir}/src">
-      <include name="**/*.php" />
-    </fileset>
-    <fileset dir="${basedir}/tests">
-      <include name="**/*.php" />    
-    </fileset>
-    <exec executable="phploc">
-      <arg value="-l" />
-    </exec>
+	<apply executable="php" failonerror="true">
+		<arg value="-l"/>
+		    <fileset dir="${basedir}/src">
+      			<include name="**/*.php" />
+    		</fileset>
+    		<fileset dir="${basedir}/tests">
+      			<include name="**/*.php" />    
+    		</fileset>
+	</apply>
   </target>
 
 <target name="phploc" description="Measure project size using PHPLOC">
     <exec executable="phploc">
+	<arg value="--count-tests"/>
         <arg value="--log-csv"/>
         <arg value="${basedir}/build/logs/phploc.csv"/>
-        <arg value="--exclude"/>
-        <arg value="${basedir}/api/"/>
-        <arg value="--exclude"/>
-        <arg value="${basedir}/external/"/>
-        <arg path="${basedir}"/>
+        <arg path="${basedir}/src"/>
     </exec>
 </target>
 
