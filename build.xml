@@ -63,10 +63,7 @@
 </target>
 
 <target name="phpunit" description="Execution de phpunit">
-    <exec executable="phpunit" >
-	<arg value="--bootstrap" />
-	<arg value="${basedir}/bootstrap.php" />
-    </exec>
+    <exec executable="phpunit" />
 </target>
 </project>
 
