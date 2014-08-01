@@ -15,10 +15,6 @@ class ServiceUserTest extends PHPUnit_Framework_TestCase {
 		$user->method('getAge')->will($this->returnValue(12));
 		
 		$this->dao = $this->GetMockBuilder('DAO\\DAOUserSession')->disableOriginalConstructor()->getMock();
-
-		var_dump($user->getAge());
-		var_dump($user->getPrenom());
-		var_dump($user->getNom());
 		
 		$this->dao->method('get')->will($this->returnValue($user->getAge()));
 
