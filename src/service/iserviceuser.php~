@@ -12,6 +12,10 @@ interface iServiceUser {
   public function register($nom, $prenom, $age);
   // getUser() retourne l'utilisateur
   public function getUser();
+  // get(...) permet de récupérer la valeur pour une clef donnée
+  public function get($key);
+  // set(...) permet d'enregistrer la valeur donnée pour la clef correpondante
+  public function set($key, $value);
   // fullName() retourne le nom complet de l'utilisateur
   public function fullName();
   // birthyear() retourne l'année de naissance de l'utilisateur

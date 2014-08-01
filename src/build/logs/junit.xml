@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="IMIE-CI" tests="3" assertions="3" failures="0" errors="0" time="0.005182">
+    <testsuite name="ServiceUserTest" file="/home/imie/src/tests/serviceusertest.php" tests="2" assertions="2" failures="0" errors="0" time="0.005004">
+      <testcase name="testFullName" class="ServiceUserTest" file="/home/imie/src/tests/serviceusertest.php" line="31" assertions="1" time="0.001369"/>
+      <testcase name="testBirthyear" class="ServiceUserTest" file="/home/imie/src/tests/serviceusertest.php" line="40" assertions="1" time="0.003635"/>
+    </testsuite>
+    <testsuite name="UserTest" file="/home/imie/src/tests/usertest.php" tests="1" assertions="1" failures="0" errors="0" time="0.000178">
+      <testcase name="testgetPrenom" class="UserTest" file="/home/imie/src/tests/usertest.php" line="5" assertions="1" time="0.000178"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

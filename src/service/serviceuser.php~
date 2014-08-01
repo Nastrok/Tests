@@ -24,7 +24,7 @@ class ServiceUser implements iServiceUser {
   public function fullName() {
 	$user = $this->userDAO->getUser();
 	
-    return $user->getPrenom().' '.$user->getNom();
+    return $user->getPrenom().' '.$this->userDAO->getNom();
   }
 
   public function birthyear() {

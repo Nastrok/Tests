@@ -2,31 +2,36 @@
 
 class ServiceUserTest extends PHPUnit_Framework_TestCase {
 	
-	protected $mock;
-	protected $user;
+	protected $dao;
+
 	/*
 	 * constructeur
 	 */
 	function __construct() {
 		
-		$this->user = $this->GetMockBuilder('Entities\\User')->getMock();
-		$this->user->method('getNom')->will($this->returnValue('Machin'));
-		$this->user->method('getPrenom')->will($this->returnValue('Trucmuch'));
-		$this->user->method('getAge')->will($this->returnValue(12));
+		$user = $this->GetMockBuilder('Entity\\User')->disableOriginalConstructor()->getMock();
+		$user->method('getNom')->will($this->returnValue('Machin'));
+		$user->method('getPrenom')->will($this->returnValue('Trucmuch'));
+		$user->method('getAge')->will($this->returnValue(12));
 		
-		$this->mock = $this->GetMockBuilder('DAO\\DAOUserSession')->getMock();
+		$this->dao = $this->GetMockBuilder('DAO\\DAOUserSession')->disableOriginalConstructor()->getMock();
+
+		var_dump($user->getAge());
+		var_dump($user->getPrenom());
+		var_dump($user->getNom());
 		
-		$this->mock->method('get')->will($this->returnValue($this->user->getAge()));
-		$this->mock->method('getUser')->will($this->returnValue($this->user));
+		$this->dao->method('get')->will($this->returnValue($user->getAge()));
+
+		$this->dao->method('getUser')->will($this->returnValue($user));
 		
 	}
 	/*
-	 * @cover Service\ServiceUser::fullname();
+	 * @cover Service\ServiceUser::fullName();
 	 */
 	public function testFullName(){
 		
-		$service = new Service\ServiceUser($this->mock);
-		$this->assertEquals('John John', $service->fullname());
+		$service = new Service\ServiceUser($this->dao);
+		$this->assertEquals('Trucmuch Machin', $service->fullName());
 		
 	}
 	/*
@@ -34,8 +39,8 @@ class ServiceUserTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testBirthyear(){
 		
-		$service = new Service\ServiceUser($this->mock);
-		$this->assertEquals(36, $service->birthyear());
+		$service = new Service\ServiceUser($this->dao);
+		$this->assertEquals(date('Y') - 12, $service->birthyear());
 		
 	}
 	
